@@ -9,17 +9,16 @@ public class Dynam_Particle : MonoBehaviour
     STATES currentState = STATES.NONE; //Defines the currentstate of the particle, default is water
     public GameObject currentImage; //The image is for the metaball shader for the effect, it is onle seen by the liquids camera.
     public GameObject[] particleImages; //We need multiple particle images to reduce drawcalls
-    float GAS_FLOATABILITY = 1.0f; //How fast does the gas goes up?
     float particleLifeTime = 3.0f, startTime;//How much time before the particle scalesdown and dies
     public bool scales_down = false;
 
-    bool m_IsSticky = false;
     [Tooltip("How much force the particle use vs the elements it collide with")]
     public float m_Sticknes = 0.5f;
     [Tooltip("Which layers the drop collide with")]
     public LayerMask m_Stick_To_Layers;
 
-    public bool m_Is_InContact_With_Floor;
+    public bool m_IsSticky = false;
+    public bool m_Is_InContact_With_Floor = false;
 
     void start()
     {
@@ -35,12 +34,9 @@ public class Dynam_Particle : MonoBehaviour
 
     void OnEnable()
     {
-        startTime = Time.time;
-        if (gameObject.tag == "Player")
-        {
-            m_IsSticky = true;
-        }
-    //    StartCoroutine(is_sticky());
+        //      startTime = Time.time;
+        m_Is_InContact_With_Floor = false;
+        //    StartCoroutine(is_sticky());
     }
 
     void OnDisable()  // Reset state of the particle so that can be placed back to the pool
@@ -51,9 +47,10 @@ public class Dynam_Particle : MonoBehaviour
         {
             Destroy(elem);
         }
-        m_IsSticky = true;
+        m_IsSticky = false;
+        m_Is_InContact_With_Floor = false;
 
-    }
+}
 
     //The definitios to each state
     public void SetState(STATES newState)
@@ -149,6 +146,17 @@ public class Dynam_Particle : MonoBehaviour
     // If the particle is Sticky and hit something in the sticky layer mask, it will adhere with some force
     void OnCollisionEnter2D(Collision2D other)
     {
+        if ( (other.gameObject.layer == LayerMask.NameToLayer("Enemy_Food")) &&
+            (gameObject.tag         == "Player") &&
+            (other.gameObject.GetComponent<Enemy>().enabled)                     )
+        {
+            Rigidbody2D otherRb = other.gameObject.GetComponent<Rigidbody2D>();
+            otherRb.isKinematic = false;
+            other.gameObject.GetComponent<Enemy>().enabled = false;
+            other.gameObject.GetComponent<Animator>().enabled = false;
+            GameManager.Instance.m_Player.GetComponent<Player>().Eat_Carry(other.gameObject);
+            Debug.Log("Enemy eated");
+        }
 
         // Stickness, anything not related to it before this line!
         if (!m_IsSticky) return; // return if not sticky!
@@ -157,19 +165,14 @@ public class Dynam_Particle : MonoBehaviour
         {
             if (m_Stick_To_Layers == (m_Stick_To_Layers | ( 1 << elem.collider.gameObject.layer )))
             {
-          //      Debug.Log("Normal: " + elem.normal );
-                
                 rb.velocity = rb.velocity + (-elem.normal * m_Sticknes);
                 m_Is_InContact_With_Floor = true;
             }
         }
-
-
     }
 
     void OnCollisionStay2D(Collision2D other)
     {
-
         // Stickness, anything not related to it before this line!
         if (!m_IsSticky) return; // return if not sticky!
 

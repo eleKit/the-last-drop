@@ -30,11 +30,18 @@ public class CameraManager : Singleton<CameraManager>{
     // Use this for initialization
     void Start () {
         tr = gameObject.GetComponent<Transform>();
+        if (m_Camera_Focus == null) m_Camera_Focus = GameObject.Find("Player");
+
+        GameObject Player_start = GameObject.Find("PlayerStart");
 
         m_cam_grav_vector = new Vector3(Physics2D.gravity.x, Physics2D.gravity.y, 0.0f);
         if (m_Player_Camera == null) m_Player_Camera = GameObject.Find("Player_Cameras");
 
         m_Player_Camera.transform.rotation.SetLookRotation(m_cam_grav_vector, Vector3.up);
+
+        Vector3 new_position = (Player_start != null) ? Player_start.transform.position : m_Camera_Focus.transform.position;
+        new_position.z = m_Player_Camera.transform.position.z;
+        m_Player_Camera.transform.position = new_position;
     }
 
     void Update()
@@ -48,8 +55,9 @@ public class CameraManager : Singleton<CameraManager>{
         }
 
         //       m_isCameraMoving = ;
-        if (!Aprox(tr.transform.position, m_Camera_Focus.transform.position))
-        { 
+        if (!Aprox(m_Player_Camera.transform.position, m_Camera_Focus.transform.position))
+        {
+            //Debug.Log(tr.transform.position + " " + m_Camera_Focus.transform.position);
             Vector3 new_position = Vector3.Lerp(m_Player_Camera.transform.position, m_Camera_Focus.transform.position, Time.deltaTime * m_Camera_Speed);
             new_position.z = m_Player_Camera.transform.position.z;
             m_Player_Camera.transform.position = new_position;
@@ -69,6 +77,16 @@ public class CameraManager : Singleton<CameraManager>{
 
     bool Aprox(Vector3 arg1, Vector3 arg2)  // Return true if two vector are similar enough(based on m_Camera_Abs_Alt_Distance)
     {
-        return (Vector3.Magnitude(arg1 - arg2) < m_Camera_Abs_Alt_Distance) ? true : false;
+        Vector2 argo1 = arg1;
+        Vector2 argo2 = arg2;
+        return (Mathf.Abs( Vector3.Magnitude(argo1 - argo2) ) < m_Camera_Abs_Alt_Distance) ? true : false;
+    }
+
+    public void Reset_To_Start()
+    {
+        GameObject Player_start = GameObject.Find("PlayerStart");
+        Vector3 new_position = (Player_start != null) ? Player_start.transform.position : m_Camera_Focus.transform.position;
+        new_position.z = m_Player_Camera.transform.position.z;
+        m_Player_Camera.transform.position = new_position;
     }
 }
