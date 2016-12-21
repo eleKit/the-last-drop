@@ -18,13 +18,8 @@ public class DeadlyPlatform : MonoBehaviour
 
 	void OnCollisionEnter2D (Collision2D collision)
 	{
-		if (collision.gameObject.tag == "Player") {
-			GameManager.Instance.m_Player.GetComponent<PlayerAvatar_02> ().Deactivate_Particle (collision.gameObject);
-		}
+		//TODO check if setActive false the object or start an animation
 		collision.gameObject.SetActive (false);
-		if (collision.gameObject.name == "Ball") {
-			GameWinManager.Instance.LoseLevel ();
-			Debug.Log ("U ded");
-		}
+		GameWinManager.Instance.LoseLevel ();
 	}
 }

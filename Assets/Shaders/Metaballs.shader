@@ -49,10 +49,10 @@ SubShader {
 		    finalColor=floor(finalColor/0.05)*0.3;  //Blend it in
 		     finalColor.a=0.5f; // To add some transparency		    
 	    }	    
-	    else if(texcol.b>0.3){	//This is for the water effect
+	     else if(texcol.b>0.3){	//This is for the water effect
 	    		finalColor=half4(0.0,texcol.b/2.0,texcol.b,0.5);
 				
-				finalColor.g=floor((finalColor.b/0.1)*0.3);
+				finalColor.b =floor((finalColor.b/0.1)*0.3); 
 		}	    
 	    return finalColor;
 	}
