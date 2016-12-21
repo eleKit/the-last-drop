@@ -5,11 +5,7 @@ using System.Collections.Generic;
 public class PlayerAvatar_02 : MonoBehaviour
 {
 	Transform tr;
-	//    CircleCollider2D m_Circle_Coll; // Collider used for triggering player event(consoles for example)
 
-	public string m_Layer_Static;
-	public string m_Layer_Player;
-	public LayerMask m_Layer_Raycast;
 	public GameObject m_Particle;
 
 	[Header ("Starting Position object"), Tooltip ("if null it will start from transform position of player")]

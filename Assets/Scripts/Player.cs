@@ -153,51 +153,11 @@ public class Player : MonoBehaviour
 
 	void FixedUpdate ()
 	{
-		/*
-        if ( !GameManager.Instance.m_Gravity_Type )
-        {   // gravity changed to the next, or previous index based on H Axis 1, check game manager
-            if (m_H_Axis1 != 0.0f)
-            {
-                GameManager.Instance.Gravity_Change( ( m_H_Axis1 > 0 ) ? true : false );
-            }
-        }
-        else   // continous gravity adjustments
-        {
-            m_player_applied_speed.Set(0.0f, 0.0f);
-            if (m_H_Axis1 != 0.0f) m_player_applied_speed += new Vector2(Physics2D.gravity.y, -Physics2D.gravity.x).normalized * m_Speed_H * m_H_Axis1 * Time.fixedDeltaTime * -1;//force applied perpendiculary to gravity
-            if (m_V_Axis1 != 0.0f) m_player_applied_speed += new Vector2(-Physics2D.gravity.x, -Physics2D.gravity.y).normalized * m_Speed_V * m_V_Axis1 * Time.fixedDeltaTime;
-            m_player_applied_speed += rb.velocity;
-            rb.velocity = (rb.velocity.magnitude > m_Max_Speed) ? (m_player_applied_speed.normalized * m_Max_Speed) : m_player_applied_speed;
-            if ((m_H_Axis2 != 0.0f) && (!Input.GetButton("Fire1")))
-            {
-                Physics2D.gravity = Quaternion.Euler(0f, 0f, m_H_Axis2 * Time.fixedDeltaTime * 100.0f) * Physics2D.gravity;
-            }
-        }
-        */
-        
-		// PC / TEST LOGIC WITH KEYBOARD OF GAMEPAD
-#if UNITY_EDITOR || UNITY_STANDALONE
-		if ((m_H_Axis1 != 0) ||
-		    (m_V_Axis1 != 0)) {
-//            Debug.Log(m_H_Axis1 + " " + m_V_Axis1);
-			Vector2 direction = GameManager.Instance.Rotate_By_Gravity (new Vector2 (m_H_Axis1, m_V_Axis1));
-			GameManager.Instance.m_Player_Avatar_Cs.AddSpeed (direction * Time.fixedDeltaTime * m_Speed);
-		}
-
-#endif
-
-		if (m_Is_Moving) {  // Is moving!
-			Vector2 direction = GameManager.Instance.Rotate_By_Gravity (TouchControlManager.Instance.moveDirection); // change rotation by gravity
-			GameManager.Instance.m_Player_Avatar_Cs.AddSpeed (direction * Time.fixedDeltaTime * m_Speed);
-		}
-
 		// Strecthing logic, if there is a stretch in action(which is true if the Line Render is enabled)
 		if ((m_Line_Renderer.enabled) &&
 		    (m_Stretch_Condition == 2)) { // Condition 2 = the stretch is latched
 			m_Central_Particle_rb.velocity = m_Central_Particle_rb.velocity + ((new Vector2 (m_Streching_Points [0].x, m_Streching_Points [0].y) - new Vector2 (m_Streching_Points [1].x, m_Streching_Points [1].y)) * m_Ability1_Tensile_Str);
 			Set_Points ();
-			// Current maximum lenght is: 1.0f * parts_used* m_Ability1_Length
-			float lenght = Vector3.Magnitude (m_Streching_Points [0] - m_Streching_Points [1]);
 
 			m_Line_Renderer.enabled = Check_Stretch_Length ();
 		}
@@ -267,7 +227,7 @@ public class Player : MonoBehaviour
 	{
 //        GameManager.Instance.m_Debug_Text.text = "Swipe: " + direction;
 		Vector3 direction3 = direction;
-		direction = GameManager.Instance.Rotate_By_Gravity (direction);
+		//direction = GameManager.Instance.Rotate_By_Gravity (direction);
 
 		float parts_used = (float)GameManager.Instance.m_Player_Avatar_Cs.No_Particles () / m_Ability1_Perc_Particle_Used;
 
