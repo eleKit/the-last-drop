@@ -52,7 +52,7 @@ public class PlayerAvatar_02 : MonoBehaviour
 	// radial segment size by number of raycasts
 
 
-	public class RB_vert : MonoBehaviour
+	public class RB_vert
 	{
 		public static GameObject Center;
 		public GameObject particle;
@@ -214,29 +214,9 @@ public class PlayerAvatar_02 : MonoBehaviour
 		return m_vertex_list [0].particle;
 	}
 
-	// TODO: remove
-	public void AddSpeed (Vector2 Speed)
-	{
-		if (GameManager.Instance.m_Player_IsStretching == false) {
-			m_vertex_list [0].rigidBody.AddForce (Speed * m_Num_In_Contact);
-		} else {
-			m_vertex_list [0].rigidBody.AddForce ((Speed * m_Num_In_Contact) + (Speed.normalized * m_Air_Control * m_vertex_list.Count));
-		}
-	}
 
-	// TODO: remove
-	public void Grow (int no_particles)
-	{
-		Debug.Log ("Add particle: " + no_particles);
-		Vector3 position = Vector3.zero;
-		for (int i = 0; i < no_particles; i++) {
-			int rand_sincos_ind = Random.Range (0, m_No_Particles);
 
-			position.Set (m_Radius * m_CosSin [rand_sincos_ind].x, m_Radius * m_CosSin [rand_sincos_ind].y, tr.position.z);
-			m_vertex_list.Add (new RB_vert (POLIMIGameCollective.ObjectPoolingManager.Instance.GetObject (m_Particle.name), tr.position + position, Quaternion.identity));
-			m_vertex_list [m_vertex_list.Count - 1].center_spring (m_Center_Bound_Freq);
-		}
-	}
+
 
 	/***************************************/
 	/********* TRIGGER EVENTS **************/
@@ -252,8 +232,6 @@ public class PlayerAvatar_02 : MonoBehaviour
 		}
 
 		make_vertex_list ();
-		GameManager.Instance.m_Central_Particle = Get_Central_Particle ();
-		//TODO: remove from GameManager GameManager.Instance.Gravity_Reset ();
 
 	}
 
