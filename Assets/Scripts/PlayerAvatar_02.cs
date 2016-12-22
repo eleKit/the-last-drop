@@ -19,13 +19,10 @@ public class PlayerAvatar_02 : MonoBehaviour
 	public int m_min_particles = 5;
 
 	[Tooltip ("Strenght of the bounds toward center")]
-	public float m_Center_Bound_Freq;
+	public float m_Center_Bound_Elasticity;
 	[Tooltip ("Strenght of the surface buond")]
-	public float m_Surface_Buond;
+	public float m_Surface_Bound;
 
-	[Header ("Iteractions with other scripts")]
-	[Tooltip ("Time must pass between a teleport and the other in secs")]
-	public float m_Min_Time_ToTeleport = 0.2f;
 
 	[Tooltip ("Air control streght, then is multiplied with the number of particles")]
 	public float m_Air_Control = 1.0f;
@@ -111,13 +108,23 @@ public class PlayerAvatar_02 : MonoBehaviour
 		calc_cossin (); // Setup everything needed depending on the number of "Raycasts", like CosSin, number of
 		// vertices for the mesh generation ecc
 
+		if (m_Start_Position_Object != null) {
+			m_Start_Position = m_Start_Position_Object.transform.position;
+			tr.position = m_Start_Position;
+		} else {
+			m_Start_Position = tr.position;
+		}
+
+		make_vertex_list ();
 
 		PlayerReset ();
+
+
 
 /*      POLIMIGameCollective.EventManager.StartListening("PlayerReset", PlayerReset);
 
         POLIMIGameCollective.EventManager.StartListening("EndLevel", PlayerDestroy);*/
-		POLIMIGameCollective.EventManager.StartListening ("LoadLevel", PlayerReset);
+/*		POLIMIGameCollective.EventManager.StartListening ("LoadLevel", PlayerReset);*/
 
 /*
         POLIMIGameCollective.EventManager.StartListening("PauseLevel", PlayerDestroy);
@@ -193,7 +200,7 @@ public class PlayerAvatar_02 : MonoBehaviour
 				                       tr.position + position,
 				                       Quaternion.identity);
 			m_vertex_list.Add (new_particle);
-			new_particle.center_spring (m_Center_Bound_Freq);
+			new_particle.center_spring (m_Center_Bound_Elasticity);
 		}
 	}
 
@@ -223,22 +230,27 @@ public class PlayerAvatar_02 : MonoBehaviour
 	/***************************************/
 	public void PlayerReset ()
 	{
-
-		if (m_Start_Position_Object != null) {
-			m_Start_Position = m_Start_Position_Object.transform.position;
-			tr.position = m_Start_Position;
-		} else {
-			m_Start_Position = tr.position;
+		DeactivateParticles ();
+		for (int i = 0; i < m_vertex_list.Count; i++) {
+			m_vertex_list [i].particle.transform.position = m_Start_Position;
 		}
-
-		make_vertex_list ();
+		ActivateParticles ();
 
 	}
+
+
 
 	public void DeactivateParticles ()
 	{
 		for (int i = 0; i < m_vertex_list.Count; i++) {
 			m_vertex_list [i].particle.SetActive (false);
+		}
+	}
+
+	public void ActivateParticles ()
+	{
+		for (int i = 0; i < m_vertex_list.Count; i++) {
+			m_vertex_list [i].particle.SetActive (true);
 		}
 	}
 }

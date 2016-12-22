@@ -75,6 +75,9 @@ public class GameWinManager : Singleton<GameWinManager>
 	[Header ("Gravity Input")]
 	public Gravity gravityInput;
 
+	[Header ("PlayerAvatar")]
+	public PlayerAvatar_02 playerAvatar;
+
 
 
 	void Start ()
@@ -144,6 +147,10 @@ public class GameWinManager : Singleton<GameWinManager>
 
 		//activate timer screen
 		m_timer_screen.SetActive (true);
+
+		// Reset drop
+		playerAvatar.PlayerReset ();
+		playerAvatar.ActivateParticles ();
 	
 	
 	}
@@ -190,6 +197,7 @@ public class GameWinManager : Singleton<GameWinManager>
 		this.ClearScreens ();
 		// destroy the currently allocated level screen when a level ends winning/losing
 		Destroy (m_playing_screen);
+		playerAvatar.DeactivateParticles ();
 		
 	}
 
@@ -206,6 +214,7 @@ public class GameWinManager : Singleton<GameWinManager>
 	public void PauseLevel ()
 	{
 		m_playing_screen.SetActive (false);
+		playerAvatar.DeactivateParticles ();
 		m_pauselevel_screen.SetActive (true);
 	}
 
@@ -215,6 +224,7 @@ public class GameWinManager : Singleton<GameWinManager>
 	{
 		m_pauselevel_screen.SetActive (false);
 		m_playing_screen.SetActive (true);
+		playerAvatar.ActivateParticles ();
 	}
 
 
