@@ -244,7 +244,6 @@ public class PlayerAvatar_02 : MonoBehaviour
 	public void PlayerReset ()
 	{
 
-		m_Start_Position_Object = GameObject.Find ("PlayerStart");
 		if (m_Start_Position_Object != null) {
 			m_Start_Position = m_Start_Position_Object.transform.position;
 			tr.position = m_Start_Position;
