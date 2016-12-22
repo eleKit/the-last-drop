@@ -22,7 +22,7 @@ public class Dynam_Particle : MonoBehaviour
 	public GameObject[] particleImages;
 	//We need multiple particle images to reduce drawcalls
 	float particleLifeTime = 3.0f, startTime;
-//How much time before the particle scalesdown and dies
+	//How much time before the particle scalesdown and dies
 	public bool scales_down = false;
 
 	[Tooltip ("How much force the particle use vs the elements it collide with")]
@@ -94,30 +94,6 @@ public class Dynam_Particle : MonoBehaviour
 			}
 		}
 	}
-	/*
-    void Update()
-    {
-        switch (currentState)
-        {
-            case STATES.WATER: //Water and lava got the same behaviour
-                MovementAnimation();
-                if(scales_down) ScaleDown();
-                break;
-            case STATES.LAVA:
-                MovementAnimation();
-                if (scales_down) ScaleDown();
-                break;
-            case STATES.GAS:
-                if (rb.velocity.y < 50)
-                { //Limits the speed in Y to avoid reaching mach 7 in speed
-                    rb.AddForce( -Physics2D.gravity * GAS_FLOATABILITY ); // Gas always goes upwards
-                }
-                if (scales_down) ScaleDown();
-                break;
-
-        }
-    }
-    */
 
 	// This scales the particle image acording to its velocity, so it looks like its deformable... but its not ;)
 	void MovementAnimation ()
