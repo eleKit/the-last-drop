@@ -8,8 +8,8 @@ public class PlayerAvatar_02 : MonoBehaviour
 
 	public GameObject m_Particle;
 
-	[Header ("Starting Position object"), Tooltip ("if null it will start from transform position of player")]
-	public GameObject m_Start_Position_Object;
+	// The starting position for the player at the current level, used to spawn the drop
+	private GameObject m_Start_Position_Object;
 
 	[Header ("Shape Stats"), Tooltip ("Number of particles around the center"), Range (8, 100)]
 	public int m_No_Particles = 8;
@@ -34,7 +34,6 @@ public class PlayerAvatar_02 : MonoBehaviour
 	// Record [0] store the center of the mesh information.
 	private List<RB_vert> m_vertex_list = new List<RB_vert> ();
 
-	private float m_Last_Teleport;
 
 	/// <summary>
 	/// m_Num_In_Contact tell us how many particle are "sticked" to a surface, it should be used to move around the blob
@@ -42,7 +41,6 @@ public class PlayerAvatar_02 : MonoBehaviour
 	/// </summary>
 	public int m_Num_In_Contact;
 	//Used by checkforcontact, to get a rough(not real time!!!) estimate on how big is the blob
-	private Vector3 m_Start_Position;
 
 	private Vector2[] m_CosSin;
 	float m_Radii_Segment;
@@ -105,14 +103,16 @@ public class PlayerAvatar_02 : MonoBehaviour
 	{
 		tr = gameObject.GetComponent<Transform> ();
 
+		SearchStartPos ();
+
 		calc_cossin (); // Setup everything needed depending on the number of "Raycasts", like CosSin, number of
 		// vertices for the mesh generation ecc
 
 		if (m_Start_Position_Object != null) {
-			m_Start_Position = m_Start_Position_Object.transform.position;
-			tr.position = m_Start_Position;
+			tr.position = m_Start_Position_Object.transform.position;
 		} else {
-			m_Start_Position = tr.position;
+			Debug.Log ("No PlayerStart found!");
+			tr.position = Vector3.zero;
 		}
 
 		make_vertex_list ();
@@ -191,13 +191,13 @@ public class PlayerAvatar_02 : MonoBehaviour
 			tr.position, Quaternion.identity));
 		m_vertex_list [0].set_center ();
 
-		Vector3 position = Vector3.zero;
+		Vector3 relative_position = Vector3.zero;
 
 		// Generate other particles
-		for (int i = 0; i < m_No_Particles; i++) {
-			position.Set (m_Radius * m_CosSin [i].x, m_Radius * m_CosSin [i].y, tr.position.z);
+		for (int i = 1; i < m_No_Particles; i++) {
+			relative_position.Set (m_Radius * m_CosSin [i].x, m_Radius * m_CosSin [i].y, tr.position.z);
 			RB_vert new_particle = new RB_vert (POLIMIGameCollective.ObjectPoolingManager.Instance.GetObject (m_Particle.name),
-				                       tr.position + position,
+				                       tr.position + relative_position,
 				                       Quaternion.identity);
 			m_vertex_list.Add (new_particle);
 			new_particle.center_spring (m_Center_Bound_Elasticity);
@@ -231,8 +231,12 @@ public class PlayerAvatar_02 : MonoBehaviour
 	public void PlayerReset ()
 	{
 		DeactivateParticles ();
-		for (int i = 0; i < m_vertex_list.Count; i++) {
-			m_vertex_list [i].particle.transform.position = m_Start_Position;
+		SearchStartPos ();
+		tr.position = m_Start_Position_Object.transform.position;
+		m_vertex_list [0].particle.transform.position = tr.position;
+		for (int i = 1; i < m_vertex_list.Count; i++) {
+			Vector3 posRel = new Vector3 (m_Radius * m_CosSin [i].x, m_Radius * m_CosSin [i].y, tr.position.z);
+			m_vertex_list [i].particle.transform.position = posRel + tr.position;
 		}
 		ActivateParticles ();
 
@@ -253,4 +257,13 @@ public class PlayerAvatar_02 : MonoBehaviour
 			m_vertex_list [i].particle.SetActive (true);
 		}
 	}
+
+	public void SearchStartPos ()
+	{
+		m_Start_Position_Object = GameObject.FindWithTag ("Start");
+		
+	}
+
+
+
 }

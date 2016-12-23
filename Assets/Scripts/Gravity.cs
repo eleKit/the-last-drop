@@ -29,7 +29,7 @@ public class Gravity : MonoBehaviour
 	void changeGravity ()
 	{
 
-		//#if UNITY_STANDALONE || UNITY_WEBPLAYER  Unity3D editor or web player
+		//#if UNITY_EDITOR  //Unity3D editor or web player
 
 		if (Input.GetKeyDown (KeyCode.W)) {
 			Physics2D.gravity = new Vector3 (0f, gravityValue, 0f);
@@ -44,14 +44,12 @@ public class Gravity : MonoBehaviour
 			Physics2D.gravity = new Vector3 (gravityValue, 0f, 0f);
 		}
 
-		//#elif UNITY_IOS || UNITY_ANDROID || UNITY_WP8 || UNITY_IPHONE // mobile controls
-		/*
+		//#else  // mobile controls
+
 		Vector3 deviceAcc = new Vector3 (Input.acceleration.x, Input.acceleration.y, 0) * 9.81f;
 		Vector3 downPull = Vector3.down * 4.81f;
 		Vector3 res = (deviceAcc + downPull);
 		Physics2D.gravity = res.normalized * 9.81f;
-
-*/
 
 
 

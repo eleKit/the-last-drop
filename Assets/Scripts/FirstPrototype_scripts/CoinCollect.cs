@@ -20,10 +20,8 @@ public class CoinCollect : MonoBehaviour
 
 	void OnTriggerEnter2D (Collider2D other)
 	{
-		if (other.gameObject.name == "Ball") {
-			this.gameObject.SetActive (false);
-			timer.AddTime ();
-			Debug.Log ("Collect coin");
-		}
+		this.gameObject.SetActive (false);
+		timer.AddTime ();
+		Debug.Log ("Collect coin");
 	}
 }

@@ -4,7 +4,8 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 using POLIMIGameCollective;
 
-public class MenuManager : Singleton<MenuManager> {
+public class MenuManager : Singleton<MenuManager>
+{
 
 	public GameObject	m_splashscreen;
 	public GameObject	m_mainmenu;
@@ -14,14 +15,25 @@ public class MenuManager : Singleton<MenuManager> {
 	public GameObject	m_about;
 	public GameObject	m_playlevel;
 
-	public enum eMenuScreen {SplashScreen=0, MainMenu=1, Tutorial=2, Score=3, Settings=4, About=5, PlayLevel=6};
+	public enum eMenuScreen
+	{
+SplashScreen = 0,
+		MainMenu = 1,
+		Tutorial = 2,
+		Score = 3,
+		Settings = 4,
+		About = 5,
+		PlayLevel = 6}
 
-	[Header("Start with Splashscreen?")]
+	;
+
+	[Header ("Start with Splashscreen?")]
 	public bool m_start_with_splashscreen = true;
 
 	private static bool m_has_shown_splashscreen = false;
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 		if (!m_has_shown_splashscreen && m_start_with_splashscreen) {
 			SwitchMenuTo (eMenuScreen.SplashScreen);
 			m_has_shown_splashscreen = true;
@@ -31,37 +43,38 @@ public class MenuManager : Singleton<MenuManager> {
 		MusicManager.Instance.StopAll ();
 		MusicManager.Instance.PlayMusic ("MenuMusic");
 	}
-	
+
 	/// <summary>
 	/// Switch the current screen to the target one
 	/// </summary>
 	/// <param name="screen">Screen.</param>
-	public void SwitchMenuTo(eMenuScreen screen) {
+	public void SwitchMenuTo (eMenuScreen screen)
+	{
 		ClearScreens ();
 		switch (screen) {
 		case eMenuScreen.SplashScreen:
 			if (m_splashscreen != null)
-				m_splashscreen.SetActive(true);
+				m_splashscreen.SetActive (true);
 			break;
 		case eMenuScreen.MainMenu:
-			if (m_mainmenu!=null)
-				m_mainmenu.SetActive(true);
+			if (m_mainmenu != null)
+				m_mainmenu.SetActive (true);
 			break;
 		case eMenuScreen.Tutorial:
-			if (m_tutorial!=null) 
-				m_tutorial.SetActive(true);
+			if (m_tutorial != null)
+				m_tutorial.SetActive (true);
 			break;
 		case eMenuScreen.Score:
-			if (m_score!=null) 
-				m_score.SetActive(true);
+			if (m_score != null)
+				m_score.SetActive (true);
 			break;
 		case eMenuScreen.Settings:
-			if (m_settings!=null) 
-				m_settings.SetActive(true);
+			if (m_settings != null)
+				m_settings.SetActive (true);
 			break;
 		case eMenuScreen.About:
-			if (m_about!=null) 
-				m_about.SetActive(true);
+			if (m_about != null)
+				m_about.SetActive (true);
 			break;
 		}
 	}
@@ -69,27 +82,29 @@ public class MenuManager : Singleton<MenuManager> {
 	/// <summary>
 	/// Clear all the screens
 	/// </summary>
-	void ClearScreens() {
-		if (m_splashscreen!=null) 
-			m_splashscreen.SetActive(false);
-		if (m_mainmenu!=null) 
-			m_mainmenu.SetActive(false);
-		if (m_tutorial!=null) 
-			m_tutorial.SetActive(false);
-		if (m_score!=null) 
-			m_score.SetActive(false);
-		if (m_settings!=null) 
-			m_settings.SetActive(false);
-		if (m_about!=null) 
-			m_about.SetActive(false);
-		if (m_playlevel!=null) 
-			m_playlevel.SetActive(false);
+	void ClearScreens ()
+	{
+		if (m_splashscreen != null)
+			m_splashscreen.SetActive (false);
+		if (m_mainmenu != null)
+			m_mainmenu.SetActive (false);
+		if (m_tutorial != null)
+			m_tutorial.SetActive (false);
+		if (m_score != null)
+			m_score.SetActive (false);
+		if (m_settings != null)
+			m_settings.SetActive (false);
+		if (m_about != null)
+			m_about.SetActive (false);
+		if (m_playlevel != null)
+			m_playlevel.SetActive (false);
 	}
 
 	/// <summary>
 	/// Returns to the main screen
 	/// </summary>
-	public void SwitchToMainMenu() {
+	public void SwitchToMainMenu ()
+	{
 		SwitchMenuTo (eMenuScreen.MainMenu);
 	}
 
@@ -97,7 +112,8 @@ public class MenuManager : Singleton<MenuManager> {
 	/// <summary>
 	/// Switch to the tutorial screen
 	/// </summary>
-	public void SwitchToTutorial() {
+	public void SwitchToTutorial ()
+	{
 		SwitchMenuTo (eMenuScreen.Tutorial);
 	}
 
@@ -105,22 +121,26 @@ public class MenuManager : Singleton<MenuManager> {
 	/// <summary>
 	/// Switch to the tutorial score screen
 	/// </summary>
-	public void SwitchToScore() {
+	public void SwitchToScore ()
+	{
 		SwitchMenuTo (eMenuScreen.Score);
 	}
 
-	public void SwitchToAbout() {
+	public void SwitchToAbout ()
+	{
 		SwitchMenuTo (eMenuScreen.About);
 	}
 
-	public void SwitchToSettings() {
+	public void SwitchToSettings ()
+	{
 		SwitchMenuTo (eMenuScreen.Settings);
 	}
 
-	public void Play(){
+	public void Play ()
+	{
 		MusicManager.Instance.StopAll ();
 		MusicManager.Instance.PlayMusic ("GameplayMusic");
-		SceneManager.LoadScene ("FirstPrototipeLevel");
+		SceneManager.LoadScene ("DropGame");
 	}
 
 }
