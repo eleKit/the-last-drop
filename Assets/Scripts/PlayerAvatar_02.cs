@@ -187,7 +187,7 @@ public class PlayerAvatar_02 : MonoBehaviour
 		m_vertex_list.Clear ();
 
 		// Generate central particle
-		m_vertex_list.Add (new RB_vert (POLIMIGameCollective.ObjectPoolingManager.Instance.GetObject (m_Particle.name),
+		m_vertex_list.Add (new RB_vert (Instantiate (m_Particle, tr.position, Quaternion.identity),
 			tr.position, Quaternion.identity));
 		m_vertex_list [0].set_center ();
 
@@ -196,7 +196,7 @@ public class PlayerAvatar_02 : MonoBehaviour
 		// Generate other particles
 		for (int i = 1; i < m_No_Particles; i++) {
 			relative_position.Set (m_Radius * m_CosSin [i].x, m_Radius * m_CosSin [i].y, tr.position.z);
-			RB_vert new_particle = new RB_vert (POLIMIGameCollective.ObjectPoolingManager.Instance.GetObject (m_Particle.name),
+			RB_vert new_particle = new RB_vert (Instantiate (m_Particle, tr.position + relative_position, Quaternion.identity),
 				                       tr.position + relative_position,
 				                       Quaternion.identity);
 			m_vertex_list.Add (new_particle);
