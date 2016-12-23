@@ -46,12 +46,12 @@ public class Gravity : MonoBehaviour
 
 		//#else  // mobile controls
 
-		Vector3 deviceAcc = new Vector3 (Input.acceleration.x, Input.acceleration.y, 0) * 9.81f;
+		/*Vector3 deviceAcc = new Vector3 (Input.acceleration.x, Input.acceleration.y, 0) * 9.81f;
 		Vector3 downPull = Vector3.down * 4.81f;
 		Vector3 res = (deviceAcc + downPull);
 		Physics2D.gravity = res.normalized * 9.81f;
 
-
+*/
 
 		//#endif
 	}
