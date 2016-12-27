@@ -174,21 +174,41 @@ public class GameWinManager : Singleton<GameWinManager>
 
 
 
-
-
 	//called when the player reaches the end of the level
 	public void WinLevel ()
 	{
+		StartCoroutine ("WinCoroutine");
+	}
+
+	//called when the player loses in a level
+	public void LoseLevel ()
+	{
+		StartCoroutine ("LoseCoroutine");
+	}
+
+	private IEnumerator WinCoroutine ()
+	{
+		yield return new WaitForSeconds (5);
+
+		EndLevel ();
+
+		m_endlevel_screen.SetActive (true);
+
 		// set as accessible (true) the next level if the current one is won
 		if (current_level + 1 < m_levels_accessible.Length) {
 			m_levels_accessible [current_level + 1] = true;
 			m_levels_buttons [current_level + 1].SetActive (true);
 		}
-		this.EndLevel ();
-		m_endlevel_screen.SetActive (true);
-
 	}
 
+	private IEnumerator LoseCoroutine ()
+	{
+		yield return new WaitForSeconds (5);
+
+		EndLevel ();
+
+		m_loselevel_screen.SetActive (true);
+	}
 
 	// called to destroy the current level screen
 	// never called directly by the UI
@@ -198,17 +218,9 @@ public class GameWinManager : Singleton<GameWinManager>
 		// destroy the currently allocated level screen when a level ends winning/losing
 		Destroy (m_playing_screen);
 		playerAvatar.DeactivateParticles ();
+
+	}
 		
-	}
-
-
-	//called when the player loses in a level
-	public void LoseLevel ()
-	{
-		this.EndLevel ();
-		m_loselevel_screen.SetActive (true);
-	}
-
 
 	//called when the player pauses the game
 	public void PauseLevel ()

@@ -5,7 +5,7 @@ using UnityEngine;
 public class DropEyes : MonoBehaviour
 {
 
-	public GameObject Drop;
+	public PlayerAvatar_02 Drop;
 
 	Transform tr;
 
@@ -22,7 +22,8 @@ public class DropEyes : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		tr.position = Drop.gameObject.transform.position;
-		
+		//tr.position = Drop.gameObject.transform.position;
+		tr.position = Drop.Get_Central_Particle ().transform.position;
+
 	}
 }
