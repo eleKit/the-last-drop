@@ -20,6 +20,9 @@ public class GameWinManager : Singleton<GameWinManager>
 	[Header ("Cheat Flag")]
 	public bool cheat;
 
+	[Header ("Prefabs for pooling")]
+	public GameObject m_plant_animation;
+
 
 	[Header ("EndLevel Screen")]
 	public GameObject m_endlevel_screen;
@@ -82,6 +85,10 @@ public class GameWinManager : Singleton<GameWinManager>
 
 	void Start ()
 	{
+		//create a pool for the animation of the winning point
+		POLIMIGameCollective.ObjectPoolingManager.Instance.CreatePool (m_plant_animation, 100, 100);
+
+
 		//set all the levels except the first as not accessible
 		for (int i = 0; i < m_gameplay_screens.Length; i++) {
 			if (i == tutorial || cheat) {
@@ -188,7 +195,7 @@ public class GameWinManager : Singleton<GameWinManager>
 
 	private IEnumerator WinCoroutine ()
 	{
-		yield return new WaitForSeconds (5);
+		yield return new WaitForSeconds (2.5f);
 
 		EndLevel ();
 
@@ -203,7 +210,7 @@ public class GameWinManager : Singleton<GameWinManager>
 
 	private IEnumerator LoseCoroutine ()
 	{
-		yield return new WaitForSeconds (5);
+		yield return new WaitForSeconds (2.5f);
 
 		EndLevel ();
 
