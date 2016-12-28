@@ -195,6 +195,7 @@ public class GameWinManager : Singleton<GameWinManager>
 
 	private IEnumerator WinCoroutine ()
 	{
+		m_timer_screen.SetActive (false);
 		yield return new WaitForSeconds (2.5f);
 
 		EndLevel ();
@@ -210,6 +211,7 @@ public class GameWinManager : Singleton<GameWinManager>
 
 	private IEnumerator LoseCoroutine ()
 	{
+		m_timer_screen.SetActive (false);
 		yield return new WaitForSeconds (2.5f);
 
 		EndLevel ();
