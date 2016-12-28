@@ -1,0 +1,352 @@
+fileFormatVersion: 2
+guid: 2aa278ad4fce740b0ac09498ceb77fe7
+timeCreated: 1482851430
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Bosco_Forest copia_0
+    21300002: Bosco_Forest copia_1
+    21300004: Bosco_Forest copia_2
+    21300006: Bosco_Forest copia_3
+    21300008: Bosco_Forest copia_4
+    21300010: Bosco_Forest copia_5
+    21300012: Bosco_Forest copia_6
+    21300014: Bosco_Forest copia_7
+    21300016: Bosco_Forest copia_8
+    21300018: Bosco_Forest copia_9
+    21300020: Bosco_Forest copia_10
+    21300022: Bosco_Forest copia_11
+    21300024: Bosco_Forest copia_12
+    21300026: Bosco_Forest copia_13
+    21300028: Bosco_Forest copia_14
+    21300030: Bosco_Forest copia_15
+    21300032: Bosco_Forest copia_16
+    21300034: Bosco_Forest copia_17
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WebGL
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Bosco_Forest copia_0
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 660
+        width: 296
+        height: 620
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Bosco_Forest copia_1
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 674
+        width: 310
+        height: 610
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Bosco_Forest copia_2
+      rect:
+        serializedVersion: 2
+        x: 749
+        y: 691
+        width: 296
+        height: 596
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Bosco_Forest copia_3
+      rect:
+        serializedVersion: 2
+        x: 1090
+        y: 677
+        width: 276
+        height: 628
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Bosco_Forest copia_4
+      rect:
+        serializedVersion: 2
+        x: 1376
+        y: 670
+        width: 282
+        height: 648
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Bosco_Forest copia_5
+      rect:
+        serializedVersion: 2
+        x: 1742
+        y: 670
+        width: 286
+        height: 648
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Bosco_Forest copia_6
+      rect:
+        serializedVersion: 2
+        x: 1132
+        y: 8
+        width: 293
+        height: 641
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Bosco_Forest copia_7
+      rect:
+        serializedVersion: 2
+        x: 1714
+        y: 19
+        width: 279
+        height: 623
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Bosco_Forest copia_8
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 496
+        width: 209
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Bosco_Forest copia_9
+      rect:
+        serializedVersion: 2
+        x: 1034
+        y: 1364
+        width: 969
+        height: 226
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Bosco_Forest copia_10
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1601
+        width: 986
+        height: 226
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Bosco_Forest copia_11
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1834
+        width: 986
+        height: 181
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Bosco_Forest copia_12
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 1346
+        width: 966
+        height: 683
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Bosco_Forest copia_13
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 524
+        width: 1108
+        height: 143
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 2, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Bosco_Forest copia_14
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 221
+        width: 1039
+        height: 286
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Bosco_Forest copia_15
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 67
+        width: 499
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Bosco_Forest copia_16
+      rect:
+        serializedVersion: 2
+        x: 1460
+        y: 182
+        width: 215
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Bosco_Forest copia_17
+      rect:
+        serializedVersion: 2
+        x: 1449
+        y: 353
+        width: 189
+        height: 119
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
