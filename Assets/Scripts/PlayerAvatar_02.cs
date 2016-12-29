@@ -117,7 +117,8 @@ public class PlayerAvatar_02 : MonoBehaviour
 
 		make_vertex_list ();
 
-		PlayerReset ();
+		//PlayerReset ();
+		DeactivateParticles ();
 
 
 
@@ -232,7 +233,14 @@ public class PlayerAvatar_02 : MonoBehaviour
 	{
 		DeactivateParticles ();
 		SearchStartPos ();
-		tr.position = m_Start_Position_Object.transform.position;
+		//tr.position = m_Start_Position_Object.transform.position;
+		if (m_Start_Position_Object != null) {
+			tr.position = m_Start_Position_Object.transform.position;
+		} else {
+			Debug.Log ("No PlayerStart found!");
+			tr.position = Vector3.zero;
+		}
+		//End added part
 		m_vertex_list [0].particle.transform.position = tr.position;
 		for (int i = 1; i < m_vertex_list.Count; i++) {
 			Vector3 posRel = new Vector3 (m_Radius * m_CosSin [i].x, m_Radius * m_CosSin [i].y, tr.position.z);

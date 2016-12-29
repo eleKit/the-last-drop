@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: b11b7fdba5f5b4426b69297adc0778a6
-timeCreated: 1482865475
+timeCreated: 1482946780
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -194,19 +194,6 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Forest -BlackWhite_7
-      rect:
-        serializedVersion: 2
-        x: 575
-        y: 0
-        width: 320
-        height: 253
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
       name: Forest -BlackWhite_8
       rect:
         serializedVersion: 2
@@ -214,6 +201,19 @@ TextureImporter:
         y: 1313
         width: 644
         height: 408
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Forest -BlackWhite_7
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 0
+        width: 496
+        height: 276
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

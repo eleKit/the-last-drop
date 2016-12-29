@@ -29,24 +29,28 @@ public class Gravity : MonoBehaviour
 	void changeGravity ()
 	{
 
-		//#if UNITY_EDITOR  //Unity3D editor or web player
+		//#if UNITY_EDITOR || UNITY_WEBGL  //Unity3D editor or web player
 
-		if (Input.GetKeyDown (KeyCode.W)) {
-			Physics2D.gravity = new Vector3 (0f, gravityValue, 0f);
-		}
-		if (Input.GetKeyDown (KeyCode.A)) {
-			Physics2D.gravity = new Vector3 (-gravityValue, 0f, 0f);
-		}
-		if (Input.GetKeyDown (KeyCode.S)) {
-			Physics2D.gravity = new Vector3 (0f, -gravityValue, 0f);
-		}
-		if (Input.GetKeyDown (KeyCode.D)) {
-			Physics2D.gravity = new Vector3 (gravityValue, 0f, 0f);
+		if (SystemInfo.deviceType == DeviceType.Desktop) {
+			if (Input.GetKeyDown (KeyCode.W)) {
+				Physics2D.gravity = new Vector3 (0f, gravityValue, 0f);
+			}
+			if (Input.GetKeyDown (KeyCode.A)) {
+				Physics2D.gravity = new Vector3 (-gravityValue, 0f, 0f);
+			}
+			if (Input.GetKeyDown (KeyCode.S)) {
+				Physics2D.gravity = new Vector3 (0f, -gravityValue, 0f);
+			}
+			if (Input.GetKeyDown (KeyCode.D)) {
+				Physics2D.gravity = new Vector3 (gravityValue, 0f, 0f);
+			}
 		}
 
 		//#else  // mobile controls
 
-		if (Input.acceleration.x != 0f) {
+		//if (Input.acceleration.x != 0f) {
+		
+		else if (SystemInfo.deviceType == DeviceType.Handheld) {
 			Vector3 deviceAcc = new Vector3 (Input.acceleration.x, 0, 0) * 39.81f;
 			Vector3 downPull = Vector3.down * 9.81f;
 			Vector3 res = (deviceAcc + downPull);
