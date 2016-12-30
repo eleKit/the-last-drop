@@ -198,6 +198,7 @@ public class GameWinManager : Singleton<GameWinManager>
 		m_timer_screen.SetActive (false);
 		yield return new WaitForSeconds (2.5f);
 
+		playerAvatar.DeactivateParticles ();
 		EndLevel ();
 
 		m_endlevel_screen.SetActive (true);
@@ -212,6 +213,7 @@ public class GameWinManager : Singleton<GameWinManager>
 	private IEnumerator LoseCoroutine ()
 	{
 		m_timer_screen.SetActive (false);
+		playerAvatar.DeactivateParticles ();
 		yield return new WaitForSeconds (2.5f);
 
 		EndLevel ();
@@ -226,7 +228,6 @@ public class GameWinManager : Singleton<GameWinManager>
 		this.ClearScreens ();
 		// destroy the currently allocated level screen when a level ends winning/losing
 		Destroy (m_playing_screen);
-		playerAvatar.DeactivateParticles ();
 
 	}
 		

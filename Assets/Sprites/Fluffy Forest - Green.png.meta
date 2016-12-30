@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 416124d8cbc574614bf4bb56bfa5cfea
-timeCreated: 1482914798
+timeCreated: 1483102313
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -11,6 +11,7 @@ TextureImporter:
     21300008: Fluffy Forest - Green_4
     21300010: Fluffy Forest - Green_5
     21300012: Fluffy Forest - Green_6
+    21300014: Fluffy Forest - Green_7
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -186,6 +187,19 @@ TextureImporter:
         y: 1279
         width: 262
         height: 252
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fluffy Forest - Green_7
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 0
+        width: 765
+        height: 118
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
