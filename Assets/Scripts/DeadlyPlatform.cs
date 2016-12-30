@@ -19,7 +19,8 @@ public class DeadlyPlatform : MonoBehaviour
 	void OnCollisionEnter2D (Collision2D collision)
 	{
 		//TODO check if setActive false the object or start an animation
-		//collision.gameObject.SetActive (false);
-		GameWinManager.Instance.LoseLevel ();
+		if (collision.gameObject.CompareTag ("Player")) {
+			GameWinManager.Instance.LoseLevel ();
+		}
 	}
 }

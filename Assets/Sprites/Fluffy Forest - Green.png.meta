@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 416124d8cbc574614bf4bb56bfa5cfea
-timeCreated: 1483102313
+timeCreated: 1483116334
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -196,10 +196,10 @@ TextureImporter:
       name: Fluffy Forest - Green_7
       rect:
         serializedVersion: 2
-        x: 1792
+        x: 1795
         y: 0
-        width: 765
-        height: 118
+        width: 249
+        height: 141
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
