@@ -51,7 +51,7 @@ public class Gravity : MonoBehaviour
 		if (Input.acceleration.x != 0f) {
 		
 			// }else if (SystemInfo.deviceType == DeviceType.Handheld) {
-			Vector3 deviceAcc = new Vector3 (Input.acceleration.x, 0, 0) * 39.81f;
+			Vector3 deviceAcc = new Vector3 (Input.acceleration.x, 0, 0) * 45f;
 			Vector3 downPull = Vector3.down * 9.81f;
 			Vector3 res = (deviceAcc + downPull);
 			Physics2D.gravity = res.normalized * 9.81f;
