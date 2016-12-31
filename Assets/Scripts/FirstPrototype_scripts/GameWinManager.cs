@@ -45,6 +45,10 @@ public class GameWinManager : Singleton<GameWinManager>
 	[Header ("Choose-Levels Screen")]
 	public GameObject m_levels_screen;
 
+	[Header ("Num of level Screen")]
+	public GameObject m_num_of_level_screen;
+	public Text m_level_text;
+
 
 
 	/* array of gameplay screens, each index is one level, this objects are never used directly nor mutated,
@@ -147,6 +151,15 @@ public class GameWinManager : Singleton<GameWinManager>
 		this.ClearScreens ();
 		gravityInput.ResetGravity ();
 
+		//display the number of level chosen by the player
+		m_level_text.text = "Level " + (current_level + 1).ToString ();
+		m_num_of_level_screen.SetActive (true);
+
+
+		yield return new WaitForSeconds (1.5f);
+		m_num_of_level_screen.SetActive (false);
+
+		//display the game screen
 
 		//duplicate the required level and activate it
 		m_playing_screen = Instantiate (m_gameplay_screens [current_level]);
@@ -284,6 +297,8 @@ public class GameWinManager : Singleton<GameWinManager>
 			m_loading_screen.SetActive (false);
 		if (m_timer_screen != null)
 			m_timer_screen.SetActive (false);
+		if (m_num_of_level_screen != null)
+			m_num_of_level_screen.SetActive (false);
 		
 	}
 
