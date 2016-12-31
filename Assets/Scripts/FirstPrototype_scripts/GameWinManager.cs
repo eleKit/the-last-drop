@@ -196,9 +196,10 @@ public class GameWinManager : Singleton<GameWinManager>
 	private IEnumerator WinCoroutine ()
 	{
 		m_timer_screen.SetActive (false);
+		playerAvatar.DeactivateParticles ();
 		yield return new WaitForSeconds (2.5f);
 
-		playerAvatar.DeactivateParticles ();
+
 		EndLevel ();
 
 		m_endlevel_screen.SetActive (true);
