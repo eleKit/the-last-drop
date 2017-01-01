@@ -45,6 +45,9 @@ public class GameWinManager : Singleton<GameWinManager>
 	[Header ("Choose-Levels Screen")]
 	public GameObject m_levels_screen;
 
+	[Header ("Choose-Levels Screen")]
+	public GameObject m_win_game_screen;
+
 	[Header ("Num of level Screen")]
 	public GameObject m_num_of_level_screen;
 	public Text m_level_text;
@@ -180,7 +183,25 @@ public class GameWinManager : Singleton<GameWinManager>
 	public void NextLevel ()
 	{
 		current_level++;
-		StartCoroutine (LoadLevel ());
+		if (current_level < m_gameplay_screens.Length) {
+			StartCoroutine (LoadLevel ());
+		} else {
+			StartCoroutine (WinGame ());
+			
+		}
+
+	}
+
+	IEnumerator WinGame ()
+	{
+		this.ClearScreens ();
+		m_win_game_screen.SetActive (true);
+
+		yield return new WaitForSeconds (3f);
+
+		m_win_game_screen.SetActive (false);
+		this.ListLevels ();
+
 
 	}
 
@@ -299,6 +320,8 @@ public class GameWinManager : Singleton<GameWinManager>
 			m_timer_screen.SetActive (false);
 		if (m_num_of_level_screen != null)
 			m_num_of_level_screen.SetActive (false);
+		if (m_win_game_screen != null)
+			m_win_game_screen.SetActive (false);
 		
 	}
 
