@@ -98,6 +98,9 @@ public class GameWinManager : Singleton<GameWinManager>
 		//music starts
 		MusicManager.Instance.PlayMusic ("GameplayMusic");
 
+		//cleans from all sound effects
+		SfxManager.Instance.Stop ();
+
 
 		//set all the levels except the first as not accessible
 		for (int i = 0; i < m_gameplay_screens.Length; i++) {
@@ -243,9 +246,6 @@ public class GameWinManager : Singleton<GameWinManager>
 		playerAvatar.DeactivateParticles ();
 		yield return new WaitForSeconds (2.5f);
 
-		SfxManager.Instance.Stop ();
-
-
 		EndLevel ();
 
 		m_endlevel_screen.SetActive (true);
@@ -271,8 +271,6 @@ public class GameWinManager : Singleton<GameWinManager>
 		playerAvatar.DeactivateParticles ();
 		yield return new WaitForSeconds (3.3f);
 
-		SfxManager.Instance.Stop ();
-
 		EndLevel ();
 
 		m_loselevel_screen.SetActive (true);
@@ -282,6 +280,9 @@ public class GameWinManager : Singleton<GameWinManager>
 	// never called directly by the UI
 	void EndLevel ()
 	{
+		SfxManager.Instance.Unmute ();
+		SfxManager.Instance.Stop ();
+
 		this.ClearScreens ();
 		// destroy the currently allocated level screen when a level ends winning/losing
 
@@ -301,6 +302,7 @@ public class GameWinManager : Singleton<GameWinManager>
 	//called when the player pauses the game
 	public void PauseLevel ()
 	{
+		SfxManager.Instance.Mute ();
 		m_playing_screen.SetActive (false);
 		playerAvatar.DeactivateParticles ();
 		m_pauselevel_screen.SetActive (true);
@@ -310,6 +312,7 @@ public class GameWinManager : Singleton<GameWinManager>
 	//triggered by the button "continue" in the pause screen
 	public void ResumeLevel ()
 	{
+		SfxManager.Instance.Unmute ();
 		m_pauselevel_screen.SetActive (false);
 		m_playing_screen.SetActive (true);
 		playerAvatar.ActivateParticles ();
