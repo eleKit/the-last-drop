@@ -95,6 +95,9 @@ public class GameWinManager : Singleton<GameWinManager>
 		//create a pool for the animation of the winning point
 		POLIMIGameCollective.ObjectPoolingManager.Instance.CreatePool (m_plant_animation, 100, 100);
 
+		//music starts
+		MusicManager.Instance.PlayMusic ("GameplayMusic");
+
 
 		//set all the levels except the first as not accessible
 		for (int i = 0; i < m_gameplay_screens.Length; i++) {
@@ -230,6 +233,13 @@ public class GameWinManager : Singleton<GameWinManager>
 	private IEnumerator WinCoroutine ()
 	{
 		m_timer_screen.SetActive (false);
+
+		//Music Manager mute the main jingle
+		MusicManager.Instance.MuteAll ();
+
+		//lose jingle sound
+		SfxManager.Instance.Play ("pickup");
+
 		playerAvatar.DeactivateParticles ();
 		yield return new WaitForSeconds (2.5f);
 
@@ -248,6 +258,14 @@ public class GameWinManager : Singleton<GameWinManager>
 	private IEnumerator LoseCoroutine ()
 	{
 		m_timer_screen.SetActive (false);
+
+		//Music Manager mute the main jingle
+		//TODO check if stop is better
+		MusicManager.Instance.MuteAll ();
+
+		//lose jingle sound
+		SfxManager.Instance.Play ("lose");
+
 		playerAvatar.DeactivateParticles ();
 		yield return new WaitForSeconds (2.5f);
 
@@ -262,6 +280,15 @@ public class GameWinManager : Singleton<GameWinManager>
 	{
 		this.ClearScreens ();
 		// destroy the currently allocated level screen when a level ends winning/losing
+
+		//Stops all the sound effects
+		//SfxManager.Instance.Stop ();
+
+		//Unmutes Music Manager main jingle
+		//TODO check if play is better
+		MusicManager.Instance.UnmuteAll ();
+
+
 		Destroy (m_playing_screen);
 
 	}
