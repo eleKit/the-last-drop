@@ -238,10 +238,12 @@ public class GameWinManager : Singleton<GameWinManager>
 		MusicManager.Instance.MuteAll ();
 
 		//lose jingle sound
-		SfxManager.Instance.Play ("pickup");
+		SfxManager.Instance.Play ("win_jingle");
 
 		playerAvatar.DeactivateParticles ();
 		yield return new WaitForSeconds (2.5f);
+
+		SfxManager.Instance.Stop ();
 
 
 		EndLevel ();
@@ -264,10 +266,12 @@ public class GameWinManager : Singleton<GameWinManager>
 		MusicManager.Instance.MuteAll ();
 
 		//lose jingle sound
-		SfxManager.Instance.Play ("lose");
+		SfxManager.Instance.Play ("lose_jingle");
 
 		playerAvatar.DeactivateParticles ();
-		yield return new WaitForSeconds (2.5f);
+		yield return new WaitForSeconds (3.3f);
+
+		SfxManager.Instance.Stop ();
 
 		EndLevel ();
 
