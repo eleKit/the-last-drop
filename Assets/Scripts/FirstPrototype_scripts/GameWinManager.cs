@@ -15,7 +15,7 @@ public class GameWinManager : Singleton<GameWinManager>
 
 
 	// index of the first level accesible by the player at the first opening
-	private const int tutorial = 0;
+	private const int tutorial = 5;
 
 	[Header ("Cheat Flag")]
 	public bool cheat;
@@ -104,12 +104,12 @@ public class GameWinManager : Singleton<GameWinManager>
 
 		//set all the levels except the first as not accessible
 		for (int i = 0; i < m_gameplay_screens.Length; i++) {
-			if (i == tutorial || cheat) {
+			if (i <= tutorial || cheat) {
 				m_levels_accessible [i] = true;
-				m_levels_buttons [i].SetActive (true);
+				m_levels_buttons [i].GetComponent<Button> ().interactable = true;
 			} else {
 				m_levels_accessible [i] = false;
-				m_levels_buttons [i].SetActive (false);
+				m_levels_buttons [i].GetComponent<Button> ().interactable = false;
 			}
 			//deactivate all the level screens, they will never be used directly 
 			m_gameplay_screens [i].SetActive (false);
@@ -253,7 +253,7 @@ public class GameWinManager : Singleton<GameWinManager>
 		// set as accessible (true) the next level if the current one is won
 		if (current_level + 1 < m_levels_accessible.Length) {
 			m_levels_accessible [current_level + 1] = true;
-			m_levels_buttons [current_level + 1].SetActive (true);
+			m_levels_buttons [current_level + 1].GetComponent<Button> ().interactable = true;
 		}
 	}
 
