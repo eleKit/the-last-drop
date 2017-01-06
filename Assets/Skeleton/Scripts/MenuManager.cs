@@ -13,11 +13,12 @@ public class MenuManager : Singleton<MenuManager>
 	public GameObject	m_score;
 	public GameObject	m_settings;
 	public GameObject	m_about;
+	public GameObject	m_log_screen;
 	public GameObject	m_playlevel;
 
 	public enum eMenuScreen
 	{
-SplashScreen = 0,
+		SplashScreen = 0,
 		MainMenu = 1,
 		Tutorial = 2,
 		Score = 3,
@@ -96,6 +97,8 @@ SplashScreen = 0,
 			m_settings.SetActive (false);
 		if (m_about != null)
 			m_about.SetActive (false);
+		if (m_log_screen != null)
+			m_log_screen.SetActive (false);
 		if (m_playlevel != null)
 			m_playlevel.SetActive (false);
 	}
