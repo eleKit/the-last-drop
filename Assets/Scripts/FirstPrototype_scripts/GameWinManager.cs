@@ -154,7 +154,7 @@ public class GameWinManager : Singleton<GameWinManager>
 	IEnumerator LoadLevel ()
 	{
 
-		yield return new WaitForSeconds (m_loading_time);
+		//yield return new WaitForSeconds (m_loading_time);
 
 		//initialization
 		this.ClearScreens ();
