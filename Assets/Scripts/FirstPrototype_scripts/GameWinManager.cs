@@ -195,15 +195,15 @@ public class GameWinManager : Singleton<GameWinManager>
 		current_level++;
 		if (current_level < m_gameplay_screens.Length) {
 			StartCoroutine (LoadLevel ());
-		} else {
-			StartCoroutine (WinGame ());
-			
-		}
-
+		} 
 	}
 
 	IEnumerator WinGame ()
 	{
+		m_loading_screen.SetActive (true);
+
+		yield return new WaitForSeconds (0.5f);
+
 		this.ClearScreens ();
 		m_win_game_screen.SetActive (true);
 
@@ -252,10 +252,12 @@ public class GameWinManager : Singleton<GameWinManager>
 
 		EndLevel ();
 
-		m_endlevel_screen.SetActive (true);
 
 		// set as accessible (true) the next level if the current one is won
 		if (current_level + 1 < m_levels_accessible.Length) {
+
+			m_endlevel_screen.SetActive (true);
+
 			m_levels_accessible [current_level + 1] = true;
 
 			int n = PlayerPrefs.GetInt ("LastWonLevel", 0);
@@ -263,6 +265,8 @@ public class GameWinManager : Singleton<GameWinManager>
 				PlayerPrefs.SetInt ("LastWonLevel", current_level + 1);
 			}
 			m_levels_buttons [current_level + 1].GetComponent<Button> ().interactable = true;
+		} else {
+			StartCoroutine (WinGame ());
 		}
 	}
 

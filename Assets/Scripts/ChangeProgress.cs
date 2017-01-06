@@ -6,7 +6,7 @@ using UnityEngine;
 public class ChangeProgress : MonoBehaviour
 {
 	//Remember you are working with an array, so count from zero!!
-	private const int MaxLevel = 9;
+	private const int MaxLevel = 11;
 
 	[Header ("Log Screen")]
 
