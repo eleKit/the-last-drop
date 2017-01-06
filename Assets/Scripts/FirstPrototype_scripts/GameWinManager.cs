@@ -15,7 +15,7 @@ public class GameWinManager : Singleton<GameWinManager>
 
 
 	// index of the first level accesible by the player at the first opening
-	private const int tutorial = 5;
+	private int last_won_level;
 
 	[Header ("Cheat Flag")]
 	public bool cheat;
@@ -101,10 +101,14 @@ public class GameWinManager : Singleton<GameWinManager>
 		//cleans from all sound effects
 		SfxManager.Instance.Stop ();
 
+		//saves in last_won_level the last level won from PlayerPrefs
+
+		last_won_level = PlayerPrefs.GetInt ("LastWonLevel", 0);
+
 
 		//set all the levels except the first as not accessible
 		for (int i = 0; i < m_gameplay_screens.Length; i++) {
-			if (i <= tutorial || cheat) {
+			if (i <= last_won_level || cheat) {
 				m_levels_accessible [i] = true;
 				m_levels_buttons [i].GetComponent<Button> ().interactable = true;
 			} else {
@@ -253,6 +257,7 @@ public class GameWinManager : Singleton<GameWinManager>
 		// set as accessible (true) the next level if the current one is won
 		if (current_level + 1 < m_levels_accessible.Length) {
 			m_levels_accessible [current_level + 1] = true;
+			PlayerPrefs.SetInt ("LastWonLevel", current_level + 1);
 			m_levels_buttons [current_level + 1].GetComponent<Button> ().interactable = true;
 		}
 	}
