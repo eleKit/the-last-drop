@@ -257,7 +257,11 @@ public class GameWinManager : Singleton<GameWinManager>
 		// set as accessible (true) the next level if the current one is won
 		if (current_level + 1 < m_levels_accessible.Length) {
 			m_levels_accessible [current_level + 1] = true;
-			PlayerPrefs.SetInt ("LastWonLevel", current_level + 1);
+
+			int n = PlayerPrefs.GetInt ("LastWonLevel", 0);
+			if (n < (current_level + 1)) {
+				PlayerPrefs.SetInt ("LastWonLevel", current_level + 1);
+			}
 			m_levels_buttons [current_level + 1].GetComponent<Button> ().interactable = true;
 		}
 	}
