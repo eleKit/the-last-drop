@@ -163,6 +163,7 @@ public class GameWinManager : Singleton<GameWinManager>
 		//initialization
 		this.ClearScreens ();
 		gravityInput.ResetGravity ();
+		gravityInput.gameObject.SetActive (false);
 
 		//display the number of level chosen by the player
 		m_level_text.text = "Level " + (current_level + 1).ToString ();
@@ -184,6 +185,8 @@ public class GameWinManager : Singleton<GameWinManager>
 
 		//activate timer screen
 		m_timer_screen.SetActive (true);
+
+		gravityInput.gameObject.SetActive (true);
 
 		// Reset drop
 		playerAvatar.PlayerReset ();
