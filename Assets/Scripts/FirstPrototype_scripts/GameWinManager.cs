@@ -343,7 +343,7 @@ public class GameWinManager : Singleton<GameWinManager>
 	public void LoadingLevel ()
 	{
 		this.EndLevel ();
-		m_loading_screen.SetActive (true);
+		//m_loading_screen.SetActive (true);
 		this.ReloadLevel ();
 	}
 
