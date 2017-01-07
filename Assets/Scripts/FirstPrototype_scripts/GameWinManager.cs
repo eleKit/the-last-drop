@@ -168,14 +168,18 @@ public class GameWinManager : Singleton<GameWinManager>
 		m_level_text.text = "Level " + (current_level + 1).ToString ();
 		m_num_of_level_screen.SetActive (true);
 
-
-		yield return new WaitForSeconds (1.5f);
-		m_num_of_level_screen.SetActive (false);
-
 		//display the game screen
 
 		//duplicate the required level and activate it
 		m_playing_screen = Instantiate (m_gameplay_screens [current_level]);
+		playerAvatar.PlayerReset ();
+		playerAvatar.ActivateParticles ();
+		playerAvatar.DeactivateParticles ();
+
+		yield return new WaitForSeconds (1.5f);
+		m_num_of_level_screen.SetActive (false);
+
+
 		m_playing_screen.SetActive (true);
 
 		//activate timer screen
