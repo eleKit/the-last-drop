@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 6c3cb15c4c08e4d5cb4f400e1da8ab8a
+timeCreated: 1483952040
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Comili
+  fontNames:
+  - Comili
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
