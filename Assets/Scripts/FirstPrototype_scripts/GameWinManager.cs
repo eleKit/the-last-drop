@@ -214,7 +214,7 @@ public class GameWinManager : Singleton<GameWinManager>
 		this.ClearScreens ();
 		m_win_game_screen.SetActive (true);
 
-		yield return new WaitForSeconds (3f);
+		yield return new WaitForSeconds (4f);
 
 		m_win_game_screen.SetActive (false);
 		this.ListLevels ();
