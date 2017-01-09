@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 10f6593c95c4e44a684a323153eb581f
+timeCreated: 1483899915
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Huruf Miranti Bold
+  fontNames:
+  - Huruf Miranti Bold
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
