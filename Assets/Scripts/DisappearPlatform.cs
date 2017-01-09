@@ -23,21 +23,18 @@ public class DisappearPlatform : MonoBehaviour
 	void OnCollisionEnter2D (Collision2D other)
 	{
 		if (other.gameObject.CompareTag ("Player")) {
-			Invoke ("Fall", fallDelay);
+			StartCoroutine ("Fall");
 		}
 
 	}
 
-	void Fall ()
+	IEnumerator Fall ()
 	{
+		yield return new WaitForSeconds (fallDelay);
+
 		rb2d.isKinematic = false;
 		Destroy (coll2d);
-		StartCoroutine (WaitBeforeDisappear ());
-	}
 
-
-	IEnumerator WaitBeforeDisappear ()
-	{
 		yield return new WaitForSeconds (2.5f);
 		gameObject.SetActive (false);
 	}
