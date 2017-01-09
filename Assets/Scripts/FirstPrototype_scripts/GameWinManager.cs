@@ -136,6 +136,10 @@ public class GameWinManager : Singleton<GameWinManager>
 		if (Input.GetKeyDown (KeyCode.P)) {
 			PauseLevel ();
 		}
+
+		if (Input.GetKeyDown (KeyCode.W)) {
+			WinLevel ();
+		}
 	}
 
 
