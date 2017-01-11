@@ -24,23 +24,9 @@ public class PlayerAvatar_02 : MonoBehaviour
 	public float m_Surface_Bound;
 
 
-	[Tooltip ("Air control streght, then is multiplied with the number of particles")]
-	public float m_Air_Control = 1.0f;
-	[Tooltip ("Check if a particle is in contact with the floor every this seconds"), Range (0.008f, 0.1f)]
-	public float m_CheckForContact_Repeat_Time = 0.008f;
-
-
 	// List to store values of the verts in the procedural mesh, based on the numbers of raycasts
 	// Record [0] store the center of the mesh information.
 	private List<RB_vert> m_vertex_list = new List<RB_vert> ();
-
-
-	/// <summary>
-	/// m_Num_In_Contact tell us how many particle are "sticked" to a surface, it should be used to move around the blob
-	/// It's speed must be proportional to the number of particle in contact
-	/// </summary>
-	public int m_Num_In_Contact;
-	//Used by checkforcontact, to get a rough(not real time!!!) estimate on how big is the blob
 
 	private Vector2[] m_CosSin;
 	float m_Radii_Segment;
@@ -136,35 +122,6 @@ public class PlayerAvatar_02 : MonoBehaviour
 	void Update ()
 	{
 		tr.position = RB_vert.get_center_position ();
-	}
-
-	// TODO: remove
-	void OnEnable ()
-	{
-		InvokeRepeating ("Check_For_Contact", m_CheckForContact_Repeat_Time, m_CheckForContact_Repeat_Time);
-		Debug.Log ("Enable");
-	}
-
-	// TODO: remove
-	void OnDisable ()
-	{
-		CancelInvoke ("Check_For_Contact");
-		Debug.Log ("Disable");
-	}
-
-	/************************************/
-	/***    Invoke and coroutines     ***/
-	/************************************/
-	// TODO: remove
-	void Check_For_Contact ()
-	{
-		m_Num_In_Contact = 0;
-		for (int i = 1; i < m_vertex_list.Count; i++) {
-			if (m_vertex_list [i].particle_script.m_Is_InContact_With_Floor) {
-				m_Num_In_Contact += 1;
-			}
-		}
-		//Debug.Log("Num in contacts:" + m_Num_In_Contact);
 	}
 
 	/************************************/

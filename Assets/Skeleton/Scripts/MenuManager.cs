@@ -143,7 +143,7 @@ public class MenuManager : Singleton<MenuManager>
 	{
 		MusicManager.Instance.StopAll ();
 		MusicManager.Instance.PlayMusic ("GameplayMusic");
-		SceneManager.LoadScene ("DropGame");
+		SceneManager.LoadSceneAsync ("DropGame");
 	}
 
 }

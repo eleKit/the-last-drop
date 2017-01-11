@@ -177,8 +177,10 @@ public class GameWinManager : Singleton<GameWinManager>
 
 		//duplicate the required level and activate it
 		m_playing_screen = Instantiate (m_gameplay_screens [current_level]);
+
+		/*activate and deactivate the player in order to set the camera 
+		 * in the right position before the loading of a level */
 		playerAvatar.PlayerReset ();
-		playerAvatar.ActivateParticles ();
 		playerAvatar.DeactivateParticles ();
 
 		yield return new WaitForSeconds (1.5f);
@@ -194,7 +196,6 @@ public class GameWinManager : Singleton<GameWinManager>
 
 		// Reset drop
 		playerAvatar.PlayerReset ();
-		playerAvatar.ActivateParticles ();
 	
 	
 	}
@@ -388,7 +389,7 @@ public class GameWinManager : Singleton<GameWinManager>
 	//come back to main menu
 	public void SwitchToMenu ()
 	{
-		SceneManager.LoadScene ("Menu");
+		SceneManager.LoadSceneAsync ("Menu");
 	}
 		 
 
