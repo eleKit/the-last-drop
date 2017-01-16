@@ -8,8 +8,6 @@ public class Gravity : MonoBehaviour
 	public float delay = 2f;
 	public float gravityValue = 9.81f;
 
-	private Vector2 touchOrigin = -Vector2.one;
-
 	void Start ()
 	{
 		Physics2D.gravity = new Vector3 (0f, -gravityValue, 0f);
