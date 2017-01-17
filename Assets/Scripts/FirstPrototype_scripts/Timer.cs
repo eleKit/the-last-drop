@@ -23,7 +23,10 @@ public class Timer : MonoBehaviour
 	void Update ()
 	{
 		timeLeft -= Time.deltaTime;
-		GameWinManager.Instance.m_timer_text.text = Mathf.Round (timeLeft).ToString () + " s";
+		int timer = (int)Mathf.Round (timeLeft);
+		int min = timer / 60;
+		int sec = timer % 60;
+		GameWinManager.Instance.m_timer_text.text = min.ToString () + " min" + " " + sec.ToString () + " s";
 
 		//text.text = "Time Left:" + Mathf.Round (timeLeft);
 
