@@ -32,6 +32,7 @@ public class Timer : MonoBehaviour
 
 		if (timeLeft < 0) {
 			GameWinManager.Instance.LoseLevel ();
+			this.gameObject.SetActive (false);
 		}
 		
 	}
