@@ -26,7 +26,7 @@ public class Timer : MonoBehaviour
 		int timer = (int)Mathf.Round (timeLeft);
 		int min = timer / 60;
 		int sec = timer % 60;
-		GameWinManager.Instance.m_timer_text.text = min.ToString () + " min" + " " + sec.ToString () + " s";
+		GameWinManager.Instance.m_timer_text.text = min.ToString () + ":" + sec.ToString ();
 
 		//text.text = "Time Left:" + Mathf.Round (timeLeft);
 
