@@ -20,6 +20,8 @@ public class GameWinManager : Singleton<GameWinManager>
 	[Header ("Cheat Flag")]
 	public bool cheat;
 
+	private bool is_playing = false;
+
 	[Header ("Prefabs for pooling")]
 	public GameObject m_plant_animation;
 
@@ -188,6 +190,7 @@ public class GameWinManager : Singleton<GameWinManager>
 
 
 		m_playing_screen.SetActive (true);
+		is_playing = true;
 
 		//activate timer screen
 		m_timer_screen.SetActive (true);
@@ -240,12 +243,14 @@ public class GameWinManager : Singleton<GameWinManager>
 	//called when the player reaches the end of the level
 	public void WinLevel ()
 	{
+		is_playing = false;
 		StartCoroutine ("WinCoroutine");
 	}
 
 	//called when the player loses in a level
 	public void LoseLevel ()
 	{
+		is_playing = false;
 		StartCoroutine ("LoseCoroutine");
 	}
 
@@ -305,6 +310,7 @@ public class GameWinManager : Singleton<GameWinManager>
 	// never called directly by the UI
 	void EndLevel ()
 	{
+		is_playing = false;
 		SfxManager.Instance.Unmute ();
 		SfxManager.Instance.Stop ();
 
@@ -327,10 +333,16 @@ public class GameWinManager : Singleton<GameWinManager>
 	//called when the player pauses the game
 	public void PauseLevel ()
 	{
-		SfxManager.Instance.Mute ();
-		m_playing_screen.SetActive (false);
-		playerAvatar.DeactivateParticles ();
-		m_pauselevel_screen.SetActive (true);
+		if (is_playing) {
+			if (m_playing_screen != null) {
+				if (m_playing_screen.activeSelf) {
+					SfxManager.Instance.Mute ();
+					m_playing_screen.SetActive (false);
+					playerAvatar.DeactivateParticles ();
+					m_pauselevel_screen.SetActive (true);
+				}
+			}
+		}
 	}
 
 
@@ -390,6 +402,25 @@ public class GameWinManager : Singleton<GameWinManager>
 	public void SwitchToMenu ()
 	{
 		SceneManager.LoadSceneAsync ("Menu");
+	}
+
+
+	//pause when home button is pushed
+	void OnApplicationFocus (bool pause_status)
+	{
+		if (!pause_status)
+			StartCoroutine ("PauseMoment");
+			
+	}
+
+	IEnumerator PauseMoment ()
+	{
+		
+		yield return new WaitForSeconds (0.1f);
+
+		PauseLevel ();
+
+
 	}
 		 
 
