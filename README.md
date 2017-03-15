@@ -1,6 +1,18 @@
 # thelastdrop
 
-Music:
+In a grey, dying forest, with an increasing number of deadwoods, a drop falls from the clouds to water and save a plant.
+
+Help the drop its duty!
+
+
+
+Game developed for Videogame design and programming course at Politecnico di Milano
+
+https://polimi-game-collective.itch.io/the-last-drop
+
+
+
+Game Music:
 
 Jazzy Frenchy and The Lounge from http://www.bensound.com/royalty-free-music/jazz
 
