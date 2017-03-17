@@ -6,7 +6,7 @@ Help the drop its duty!
 
 
 
-Game developed for Videogame design and programming course at Politecnico di Milano
+Game developed for Videogame Design and Programming course at Politecnico di Milano
 
 https://polimi-game-collective.itch.io/the-last-drop
 
