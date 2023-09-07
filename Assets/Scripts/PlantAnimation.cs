@@ -13,7 +13,7 @@ public class PlantAnimation : MonoBehaviour
 
 	IEnumerator WaitForAnimation ()
 	{
-		yield return new WaitForSeconds (2.5f);
+		yield return new WaitForSeconds (7f);
 		gameObject.SetActive (false);
 	}
 }

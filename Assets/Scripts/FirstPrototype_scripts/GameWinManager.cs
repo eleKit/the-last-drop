@@ -47,8 +47,11 @@ public class GameWinManager : Singleton<GameWinManager>
 	[Header ("Choose-Levels Screen")]
 	public GameObject m_levels_screen;
 
-	[Header ("Choose-Levels Screen")]
+	[Header ("Win Game-Levels Screen")]
 	public GameObject m_win_game_screen;
+	
+	[Header ("Compliments-Levels Screen")]
+	public GameObject m_win_compliments_screen;
 
 	[Header ("Num of level Screen")]
 	public GameObject m_num_of_level_screen;
@@ -266,6 +269,14 @@ public class GameWinManager : Singleton<GameWinManager>
 
 		playerAvatar.DeactivateParticles ();
 		yield return new WaitForSeconds (2.5f);
+		
+		m_win_compliments_screen.SetActive(true);
+		
+		SfxManager.Instance.Stop();
+		SfxManager.Instance.Play ("Win Stinger 4");
+		yield return new WaitForSeconds (4f);
+		
+		m_win_compliments_screen.SetActive(false);
 
 		EndLevel ();
 
@@ -393,6 +404,8 @@ public class GameWinManager : Singleton<GameWinManager>
 			m_num_of_level_screen.SetActive (false);
 		if (m_win_game_screen != null)
 			m_win_game_screen.SetActive (false);
+		if (m_win_compliments_screen != null)
+			m_win_compliments_screen.SetActive (false);
 		
 	}
 
