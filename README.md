@@ -4,7 +4,7 @@ In a grey, dying forest, with an increasing number of deadwoods, a drop falls fr
 
 Help the drop its duty!
 
-Game description: The Last Drop is a mix between puzzle and platformer, it uses the giroscope to control a drop falling from the sky. Save the last drop to save the forest.
+Game description: The Last Drop is a mix between puzzle and platformer, this game exploits the giroscope of common smartphones to control the last drop falling from the sky. You should save the drop from obstacles and danger to save the forest.
 
 
 Game prototype developed for Videogame Design and Programming course at Politecnico di Milano
