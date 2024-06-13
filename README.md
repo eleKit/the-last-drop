@@ -4,15 +4,15 @@ In a grey, dying forest, with an increasing number of deadwoods, a drop falls fr
 
 Help the drop its duty!
 
+Game description: The Last Drop is a mix between puzzle and platformer, it uses the giroscope to control a drop falling from the sky. Save the last drop to save the forest.
 
 
-Game developed for Videogame Design and Programming course at Politecnico di Milano
+Game prototype developed for Videogame Design and Programming course at Politecnico di Milano
 
-https://polimi-game-collective.itch.io/the-last-drop
+Prototype available at: https://polimi-game-collective.itch.io/the-last-drop
 
 
-
-Game Music:
+Game Music from:
 
 Jazzy Frenchy and The Lounge from http://www.bensound.com/royalty-free-music/jazz
 
