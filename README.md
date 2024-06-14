@@ -2,14 +2,14 @@
 
 In a grey, dying forest, with an increasing number of deadwoods, a drop falls from the clouds to water and save a plant.
 
-Help the drop its duty!
+Help the drop in its duty!
 
 Game description: The Last Drop is a mix between puzzle and platformer, this game exploits the giroscope of common smartphones to control the last drop falling from the sky. You should save the drop from obstacles and danger to save the forest.
 
 Trailer available at: https://www.youtube.com/watch?v=uNM7AGlM0a0
 
 Game prototype developed for Videogame Design and Programming course at Politecnico di Milano
-You can download the protorype from Polimi Game Collective: https://polimi-game-collective.itch.io/the-last-drop
+You can download the prototype from Polimi Game Collective: https://polimi-game-collective.itch.io/the-last-drop
 
 
 Game Music from:
