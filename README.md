@@ -6,16 +6,16 @@ Help the drop its duty!
 
 Game description: The Last Drop is a mix between puzzle and platformer, this game exploits the giroscope of common smartphones to control the last drop falling from the sky. You should save the drop from obstacles and danger to save the forest.
 
+Trailer available at: https://www.youtube.com/watch?v=uNM7AGlM0a0
 
 Game prototype developed for Videogame Design and Programming course at Politecnico di Milano
-
-Prototype available at: https://polimi-game-collective.itch.io/the-last-drop
+You can download the protorype from Polimi Game Collective: https://polimi-game-collective.itch.io/the-last-drop
 
 
 Game Music from:
 
-Jazzy Frenchy and The Lounge from http://www.bensound.com/royalty-free-music/jazz
+* Jazzy Frenchy and The Lounge from http://www.bensound.com/royalty-free-music/jazz
 
-Applause from http://soundbible.com/988-Applause.html
+* Applause from http://soundbible.com/988-Applause.html
 
-Wind from http://soundbible.com/1810-Wind.html
+* Wind from http://soundbible.com/1810-Wind.html
