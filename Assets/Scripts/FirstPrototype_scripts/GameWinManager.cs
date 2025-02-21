@@ -65,6 +65,9 @@ public class GameWinManager : Singleton<GameWinManager>
 	public GameObject[] m_gameplay_screens;
 
 	private GameObject m_playing_screen;
+	
+	[Header ("Winning Screens")]
+	public GameObject[] m_winning_screens;
 
 	//if timer is implemented use this
 	[Range (0f, 4f)]
@@ -275,6 +278,10 @@ public class GameWinManager : Singleton<GameWinManager>
 		SfxManager.Instance.Stop();
 		SfxManager.Instance.Play ("Win Stinger 4");
 		yield return new WaitForSeconds (4f);
+
+		m_winning_screens[current_level].SetActive(true);
+		yield return new WaitForSeconds (8f);
+		m_winning_screens[current_level].SetActive(false);
 		
 		m_win_compliments_screen.SetActive(false);
 
