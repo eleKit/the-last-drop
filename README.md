@@ -8,8 +8,8 @@ Game description: The Last Drop is a mix between puzzle and platformer, this gam
 
 Trailer available at: https://www.youtube.com/watch?v=uNM7AGlM0a0
 
-Game prototype developed for Videogame Design and Programming year 2017 course at Politecnico di Milano
-You can download the prototype from Polimi Game Collective: https://polimi-game-collective.itch.io/the-last-drop
+Game compatible with iOS and Android. 
+You can download the Android first prototype developed for Videogame Design and Programming year 2017 course at Politecnico di Milano from Polimi Game Collective: https://polimi-game-collective.itch.io/the-last-drop
 
 
 Game Music from:
